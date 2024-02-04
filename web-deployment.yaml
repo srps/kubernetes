@@ -36,6 +36,9 @@ spec:
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
+        envFrom:
+          - configMapRef:
+              name: synergychat-web-configmap
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
@@ -59,4 +62,4 @@ status:
   observedGeneration: 3
   readyReplicas: 10
   replicas: 10
-  updatedReplicas: 10
+  updatedReplicas: 12
