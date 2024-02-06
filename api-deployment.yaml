@@ -35,6 +35,11 @@ spec:
                 configMapKeyRef:
                   key: API_DB_FILEPATH
                   name: synergychat-api-configmap
+            - name: CRAWLER_BASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: CRAWLER_BASE_URL
+                  name: synergychat-api-configmap
       volumes:
         - name: synergychat-api-volume
           persistentVolumeClaim:
