@@ -21,6 +21,9 @@ spec:
             limits:
               cpu: 500m
               memory: 1Gi
+          volumeMounts:
+            - name: synergychat-api-volume
+              mountPath: /persist
           env:
             - name: API_PORT
               valueFrom:
@@ -32,3 +35,8 @@ spec:
                 configMapKeyRef:
                   key: API_DB_FILEPATH
                   name: synergychat-api-configmap
+      volumes:
+        - name: synergychat-api-volume
+          persistentVolumeClaim:
+            claimName: synergychat-api-pvc
+
